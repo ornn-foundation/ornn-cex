@@ -7,5 +7,6 @@ module.exports = {
   },
   publicRuntimeConfig: {
     PRIVATE_KEY: process.env.PRIVATE_KEY,
+    BASE_URL: process.env.BASE_URL,
   },
 };

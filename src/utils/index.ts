@@ -1,5 +1,6 @@
 import { configEnv } from './configEnv';
 import { decryptAES, encryptAES } from './crypto';
+import { request } from './request';
 import {
   setStorage,
   getStorage,
@@ -18,5 +19,6 @@ export {
   encryptAES,
   decryptAES,
   configEnv,
-  theme
+  theme,
+  request
 };

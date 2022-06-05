@@ -8,6 +8,7 @@ import { theme } from '../utils';
 import '../../public/styles/global.scss';
 
 const { primary } = theme();
+
 const progress = new ProgressBar({
   size: 3,
   color: primary,
