@@ -1,8 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
 import Hello from '../components/Hello/Hello';
+import { configEnv } from '../utils';
 
-export default function Home() {
+const Home = () => {
+  const env = configEnv();
+  console.log(env.PRIVATE_KEY);
+
   return (
     <div className="container">
       <Head>
@@ -18,4 +22,6 @@ export default function Home() {
       </main>
     </div>
   );
-}
+};
+
+export default Home;
