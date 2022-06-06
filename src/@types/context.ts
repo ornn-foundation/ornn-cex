@@ -1,19 +1,14 @@
-import { Dispatch } from "react";
+import { Dispatch } from 'react';
 
-export type ActionType = 'SET_INITIAL' | 'SET_MODE_TOGGLE';
+export type ActionType = 'SET_INITIAL' | 'SET_THEME';
 
 export interface Action {
   type: ActionType;
   payload?: InitialState;
 }
 
-export enum Mode {
-  dark = 'dark',
-  light = 'light',
-}
-
 export interface InitialState {
-  dark_mode?: Mode;
+  profile?: string;
 }
 
 export interface ContextState {

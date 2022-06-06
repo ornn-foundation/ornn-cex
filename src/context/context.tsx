@@ -1,8 +1,8 @@
 import { createContext } from 'react';
-import { ContextState, InitialState, Mode } from '../@types/context';
+import { ContextState, InitialState } from '../@types/context';
 
 export const initialState: InitialState = {
-  dark_mode: Mode.light,
+  profile: '',
 };
 
 export const Context = createContext<ContextState>({

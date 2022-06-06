@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function useResize() {
+const useResize = () => {
   const [windowSize, setWindowSize] = React.useState({
     width: 0,
     height: 0,
@@ -19,4 +19,6 @@ export default function useResize() {
   }, []);
 
   return windowSize;
-}
+};
+
+export default useResize;

@@ -9,7 +9,7 @@ export const setStorage = (key: Key, data: string) => {
 };
 
 export const getStorage = (key: Key): string => {
-  const item: string = localStorage.getItem(key) || '';
+  const item = localStorage.getItem(key) || '';
   return item;
 };
 
