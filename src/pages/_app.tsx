@@ -5,9 +5,9 @@ import ProgressBar from '@badrap/bar-of-progress';
 import { Context, initialState, reducer } from '../context';
 import { useDarkMode, useStyles } from '../hooks';
 import { getStorage, setStorage, theme } from '../utils';
-import '../../public/styles/global.scss';
 import { Key } from '../@types/storage';
 import { Mode } from '../@types/theme';
+import '../../public/styles/global.scss';
 
 const progress = new ProgressBar({
   size: 3,
