@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, TitleHead } from '../components';
+import { Container, Header, TitleHead } from '../../components';
 
 const Market = () => {
   return (

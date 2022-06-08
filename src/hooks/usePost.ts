@@ -4,14 +4,15 @@ import { IRequest } from '../@types/request';
 import { IResponse } from '../@types/response';
 import { request } from '../utils';
 
-const usePost = <T>(req: IRequest) => {
-  const [response, setResponse] = React.useState<IResponse<T | unknown>>({
+const usePost = <Res, Req>({ path, query, data }: IRequest<Req>) => {
+  const [response, setResponse] = React.useState<IResponse<Res>>({
     loading: true,
     status: 0,
     data: null,
   });
 
-  const postData = ({ path, query, data }: IRequest) => {
+  const postData = React.useCallback(() => {
+    if (!path) return;
     let url = path;
     if (query) url += query;
     const res = request.post(url, data);
@@ -30,12 +31,11 @@ const usePost = <T>(req: IRequest) => {
           data: error.response?.data,
         });
       });
-  };
+  }, [path, query, data]);
 
   React.useEffect(() => {
-    if (!req.path) return;
-    postData(req);
-  }, [req]);
+    postData();
+  }, [postData]);
 
   return response;
 };
