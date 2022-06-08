@@ -1,6 +1,7 @@
 import { Dispatch } from 'react';
+import { Styles } from './theme';
 
-export type ActionType = 'SET_INITIAL' | 'SET_THEME';
+export type ActionType = 'SET_INITIAL' | 'SET_STYLES';
 
 export interface Action {
   type: ActionType;
@@ -8,6 +9,7 @@ export interface Action {
 }
 
 export interface InitialState {
+  styles?: Styles;
   profile?: string;
 }
 

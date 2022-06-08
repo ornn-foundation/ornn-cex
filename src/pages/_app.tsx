@@ -23,8 +23,18 @@ Router.events.on('routeChangeError', progress.finish);
 const App = ({ Component, pageProps }: AppProps) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
   const value = { state, dispatch };
-  useStyles();
   const darkMode = useDarkMode();
+  const styles = useStyles();
+
+  React.useEffect(() => {
+    if (styles)
+      dispatch({
+        type: 'SET_STYLES',
+        payload: {
+          styles,
+        },
+      });
+  }, [styles]);
 
   React.useEffect(() => {
     const mode = getStorage(Key.theme);

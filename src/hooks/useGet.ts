@@ -4,14 +4,14 @@ import { IResponse } from '../@types/response';
 import { request } from '../utils';
 import { IRequest } from '../@types/request';
 
-const useGet = <T>(req: IRequest) => {
-  const [response, setResponse] = React.useState<IResponse<T | unknown>>({
+const useGet = <Res, Req>(req: IRequest<Req>) => {
+  const [response, setResponse] = React.useState<IResponse<Res>>({
     loading: true,
     status: 0,
-    data: null,
+    data: undefined,
   });
 
-  const getData = ({ path, query }: IRequest) => {
+  const getData = ({ path, query }: IRequest<Req>) => {
     let url = path;
     if (query) url += query;
     const res = request.get(url);
@@ -23,7 +23,7 @@ const useGet = <T>(req: IRequest) => {
           data: res.data,
         });
       })
-      .catch((error: AxiosError) => {
+      .catch((error: AxiosError<Res>) => {
         setResponse({
           loading: false,
           status: error.response?.status || 0,
@@ -35,7 +35,7 @@ const useGet = <T>(req: IRequest) => {
   React.useEffect(() => {
     if (!req.path) return;
     getData(req);
-  }, [req]);
+  }, [req.path]);
 
   return response;
 };

@@ -1,5 +1,5 @@
-export interface IRequest {
+export interface IRequest<T> {
   path: string;
   query?: string;
-  data?: string;
+  data?: T;
 }

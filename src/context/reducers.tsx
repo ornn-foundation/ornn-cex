@@ -8,8 +8,8 @@ export const reducer = (
   switch (type) {
     case 'SET_INITIAL':
       return initialState;
-    case 'SET_MODE_TOGGLE':
-      return { ...state, dark_mode: payload?.dark_mode };
+    case 'SET_STYLES':
+      return { ...state, styles: payload?.styles };
     default:
       return state;
   }
